@@ -1,3 +1,7 @@
+body {
+  background: linear-gradient(.45turn, rgba(0, 255, 255, 0.644), rgba(255, 255, 0, 0.493), rgb(231, 103, 71));
+}
+
 #title {
   display: flex;
   justify-content: center;
@@ -5,6 +9,8 @@
   font-family: 'Rock Salt', cursive;
   font-size: 4rem;
   margin-bottom: 0;
+  background-color: rgba(179, 250, 250, 0.76);
+
 }
 
 #big-container {
@@ -51,12 +57,44 @@ justify-content: center;
   border-radius: 100%;
   text-decoration: none;
   outline: none;
+  background-color: aqua;
+  font-weight: bolder ;
+
 }
 
 .points-current-words{
-  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid black;
+  margin-top: 1rem;
 }
 
 .points-current-number {
   margin-top: 0;
+}
+
+#clear {
+  background-color: rgb(240, 59, 59);
+}
+
+#roll-dice {
+  position: absolute;
+  top: 35rem;
+  font-size: 2rem;
+}
+
+.iconify {
+  font-size: 2rem;
+  position: relative;
+  position: absolute;
+  bottom: 22.4rem;
+}
+
+#die1 {
+  margin-left: 5.2rem;
+}
+
+#die2 {
+  margin-left: -5rem;
 }

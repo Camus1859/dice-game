@@ -6,6 +6,7 @@
   <title>Dice Game</title>
   <link rel="stylesheet" href="dice-game.css">
   <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+  <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 </head>
 <body>
   <h1 id="title">Dice Game</h1>
@@ -14,12 +15,16 @@
   <div id="big-container">
     <div class="container">
       <h2 class="both-players"><u>Player 1</u></h2>
+
       <h3 class="total-points-words-both">Total Points</h3>
+
       <div class="circle">
         <h3 class="total-points-number-both">50</h3>
       </div>
-      <h4 class="points-current-words">Points for current turn</4>
-      <h5 class="points-current-number">34</h5>
+
+      <div class="points-current-words">Points for current turn
+        <h5 class="points-current-number">34</h5>
+      </div>
 
     </div>
 
@@ -29,14 +34,19 @@
       <div class="circle">
         <h3 class="total-points-number-both">50</h3>
       </div>
-      <h4 class="points-current-words">Points for current turn</h4>
-      <h5 class="points-current-number">34</h5>
+      <div class="points-current-words">Points for current turn
+        <h5 class="points-current-number">34</h5>
+      </div>
     </div>
   </div>
 
   
-
   <div id="start-clear-buttons">
+    <div id="roll-dice">Roll Dice</div>
+    <span class="iconify" id="die1" data-icon="fa-solid:dice-six" data-inline="false"></span>
+    <span class="iconify" id="die2" data-icon="fa-solid:dice-six" data-inline="false"></span>
+
+
     <button class="button" id="start">Start</button>
     <button class="button" id="clear">Clear</button>
 </div>
