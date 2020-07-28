@@ -5,27 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dice Game</title>
   <link rel="stylesheet" href="dice-game.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
 </head>
 <body>
   <h1 id="title">Dice Game</h1>
-  <div id="player1">
-    <h2 class="both-players">Player 1</h2>
-    <h3 class="total-points-both">Total Points</h3>
-    <h4 class="cirlce-both">circle with total points</h4>
-    <h4 class="points-current-both">Points for current turn</h4>
+    <h3 id="dice-image">dice image</h3>
+
+  <div id="big-container">
+    <div class="container">
+      <h2 class="both-players"><u>Player 1</u></h2>
+      <h3 class="total-points-words-both">Total Points</h3>
+      <div class="circle">
+        <h3 class="total-points-number-both">50</h3>
+      </div>
+      <h4 class="points-current-words">Points for current turn</4>
+      <h5 class="points-current-number">34</h5>
+
+    </div>
+
+    <div class="container">
+      <h2 class="both-players"><u>Player 2</u></h2>
+      <h3 class="total-points-words-both">Total Points</h3>
+      <div class="circle">
+        <h3 class="total-points-number-both">50</h3>
+      </div>
+      <h4 class="points-current-words">Points for current turn</h4>
+      <h5 class="points-current-number">34</h5>
+    </div>
   </div>
 
-  <div id="player2">
-    <h2 class="both-players">Player 2</h2>
-    <h3 class="total-points-both">Total Points</h3>
-    <h4 class="cirlce-both">circle with total points</h4>
-    <h4 class="points-current-both">Points for current turn</h4>
-  </div>
   
-  <h3>dice image</h3>
 
-  <button id="cash-in-button">Cash In Points</button>
+  <div id="start-clear-buttons">
+    <button class="button" id="start">Start</button>
+    <button class="button" id="clear">Clear</button>
+</div>
 
+  <button class="button" id="cash-in-button">Cash In Points</button>
   <script type="text/javascript" src="dice-game.js"></script>
 </body>
 </html>

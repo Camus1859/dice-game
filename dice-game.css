@@ -1,0 +1,62 @@
+#title {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  font-family: 'Rock Salt', cursive;
+  font-size: 4rem;
+  margin-bottom: 0;
+}
+
+#big-container {
+  display: flex;
+  justify-content: space-evenly;
+  font-family: 'Rock Salt', cursive;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+#dice-image {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  margin-top: 10rem;
+  margin-left: 55rem ;
+}
+
+.circle {
+  border: .2rem solid black;
+  border-radius: 100%;
+  padding: 3rem;
+
+}
+
+.total-points-number-both {
+  font-size: 1.5rem;
+}
+
+#start-clear-buttons {
+display: flex;
+justify-content: center;
+
+}
+
+.button {
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 100%;
+  text-decoration: none;
+  outline: none;
+}
+
+.points-current-words{
+  margin-bottom: 0;
+}
+
+.points-current-number {
+  margin-top: 0;
+}
