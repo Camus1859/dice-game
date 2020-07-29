@@ -2,14 +2,24 @@ let dice = 0;
 
 let rollDice = document.getElementById('roll-dice')
 rollDice.addEventListener('click', randomDice)
+let newScore = 0
+
 function randomDice(){
+
+
   dice = Math.floor(Math.random() * 6) + 1
   let diceDOM = document.querySelector('.dice')
   diceDOM.style.display = "block";
   diceDOM.src = "dice-" + dice + ".gif";
-  document.getElementById('player-one-current-score').textContent = dice
 
+
+
+  newScore = dice + newScore
+
+
+  document.getElementById('player-one-current-score').textContent = newScore 
 }
+
 
 function displayOnStart(){
   let totalPoints = document.querySelectorAll('.total-points-number-both')
