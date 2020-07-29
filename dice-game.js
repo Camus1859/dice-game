@@ -7,3 +7,23 @@ function randomDice(){
   diceDOM.style.display = "block";
   diceDOM.src = "dice-" + dice + ".gif";
 }
+
+
+function displayOnStart(){
+ let totalPoints = document.querySelectorAll('.total-points-number-both')
+let currentPoints = document.querySelectorAll('.points-current-number')
+let cashInButton = document.getElementById('cash-in-button')
+
+totalPoints.forEach(item => {
+  item.style.visibility  = "hidden"
+})
+currentPoints.forEach(item => {
+  item.style.visibility = "hidden"
+})
+
+cashInButton.style.display =  "none"
+
+
+}
+
+displayOnStart()
