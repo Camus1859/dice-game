@@ -1,30 +1,43 @@
 let dice = 0;
-
 let rollDice = document.getElementById('roll-dice')
 rollDice.addEventListener('click', randomDice)
-let newCurrentScore = 0
+let roundScore = 0
+let scores = [0,0]
+let activePlayer = 1
 
 function randomDice(){
   dice = Math.floor(Math.random() * 6) + 1
   let diceDOM = document.querySelector('.dice')
   diceDOM.style.display = "block";
   diceDOM.src = "dice-" + dice + ".gif";
-  newCurrentScore = dice + newCurrentScore
-  document.getElementById('player-one-current-score').textContent = newCurrentScore 
+  gameStarts()
 }
 
-// create function called switch user for when dice# is 1 
+
+
+function gameStarts(){
+  if (dice !== 1) {
+    roundScore += dice;
+   document.getElementById('current-' + activePlayer).textContent = roundScore 
+  } else{
+    document.getElementById('current-' + activePlayer).textContent = 0
+    roundScore = 0 
+    activePlayer === 1 ?  activePlayer = 2 : activePlayer = 1;
+  }
+}
 
 
 let cashInButton = document.getElementById('cash-in-button')
-cashInButton.addEventListener('click', cashInPoints)
 
 
-function cashInPoints(){
-  document.getElementById('total-points-player-1').textContent = newCurrentScore
-  document.getElementById('player-one-current-score').textContent = 0 
 
-}
+
+
+
+
+
+
+
 
 function displayOnStart(){
   let totalPoints = document.querySelectorAll('.total-points-number-both')
