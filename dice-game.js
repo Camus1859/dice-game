@@ -2,8 +2,9 @@ let dice = 0;
 let rollDice = document.getElementById('roll-dice')
 rollDice.addEventListener('click', randomDice)
 let roundScore = 0
-let scores = [0,0]
+let score = [0,0]
 let activePlayer = 1
+
 
 function randomDice(){
   dice = Math.floor(Math.random() * 6) + 1
@@ -27,12 +28,21 @@ function gameStarts(){
 }
 
 
+
 let cashInButton = document.getElementById('cash-in-button')
+cashInButton.addEventListener('click', cashInPoints)
+
+
+function cashInPoints(){
+  document.getElementById('score-'+ activePlayer).textContent = roundScore
+  document.getElementById('current-' + activePlayer).textContent = 0
+  activePlayer === 1 ?  activePlayer = 2 : activePlayer = 1;
+  roundScore = 0 
 
 
 
 
-
+}
 
 
 
