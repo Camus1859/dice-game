@@ -6,8 +6,8 @@ let activePlayer = 1
 let rollDice = document.getElementById('roll-dice')
 let cashInButton = document.getElementById('cash-in-button')
 
+
 cashInButton.addEventListener('click', cashInPoints)
-rollDice.addEventListener('click', randomDice)
 
 function randomDice(){
   dice = Math.floor(Math.random() * 6) + 1
@@ -35,15 +35,11 @@ function gameStarts(){
     roundScore += dice;
    document.getElementById('current-' + activePlayer).textContent = roundScore 
    opacityValue()
-
-   
-
   } else{
     document.getElementById('current-' + activePlayer).textContent = 0
     roundScore = 0 
     activePlayer === 1 ?  activePlayer = 2 : activePlayer = 1;
     opacityValue()
-
   }
 }
 
@@ -54,6 +50,8 @@ function cashInPoints(){
     roundScore = 0
     document.getElementById('current-' + activePlayer).textContent = 0
     activePlayer === 1 ?  activePlayer = 2 : activePlayer = 1;
+    opacityValue()
+
   }
 
   else{
@@ -62,6 +60,7 @@ function cashInPoints(){
     roundScore = 0
     document.getElementById('current-' + activePlayer).textContent = 0
     activePlayer === 1 ?  activePlayer = 2 : activePlayer = 1;
+    opacityValue()
   }
 }
 
@@ -81,6 +80,9 @@ displayOnStart();
 let startButton = document.getElementById('start')
 startButton.addEventListener('click', scoresAppear)
 function scoresAppear(){
+  rollDice.addEventListener('click', randomDice)
+  document.getElementById('the-2').style.opacity = ".3"
+
   let totalPoints = document.querySelectorAll('.total-points-number-both')
   let currentPoints = document.querySelectorAll('.points-current-number')
   let cashInButton = document.getElementById('cash-in-button')
