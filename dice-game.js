@@ -45,22 +45,24 @@ function gameStarts(){
 }
 
 function winner(){
-  if (totalScore1 >= 10) {
+  if (totalScore1 >= 50) {
     clearButton()
     document.getElementById('score-1').textContent = "WINNER!"
     document.getElementById('the-2').style.opacity = ".3"
     document.getElementById('roll-dice').disabled = true
     document.getElementById('clear').disabled = true
-
-  }else if(totalScore2 >= 10){
+    document.getElementById('cash-in-button').disabled = true
+  }
+  else if(totalScore2 >= 50){
     clearButton()
     document.getElementById('score-2').textContent = "WINNER!"
     document.getElementById('the-1').style.opacity = ".3"
     document.getElementById('roll-dice').disabled = true
     document.getElementById('clear').disabled = true
+    document.getElementById('cash-in-button').disabled = true
+
   }
 }
-
 
 function cashInPoints(){
   if (activePlayer ===1){
@@ -96,18 +98,15 @@ function displayOnStart(){
 }
 displayOnStart();
 
-
 function scoresAppear(){
   document.getElementById('score-1').textContent = 0
   document.getElementById('score-2').textContent = 0
   document.getElementById('roll-dice').disabled = false
   document.getElementById('clear').disabled = false
-
-
-
-
-  rollDice.addEventListener('click', randomDice)
   document.getElementById('the-2').style.opacity = ".3"
+  document.getElementById('the-1').style.opacity = "1"
+  document.getElementById('cash-in-button').disabled = false
+  rollDice.addEventListener('click', randomDice)
   let totalPoints = document.querySelectorAll('.total-points-number-both')
   let currentPoints = document.querySelectorAll('.points-current-number')
   let cashInButton = document.getElementById('cash-in-button')
@@ -121,7 +120,6 @@ function scoresAppear(){
 }
 
 function clearButton(){
-
   let totalPoints = document.querySelectorAll('.total-points-number-both')
   let currentPoints = document.querySelectorAll('.points-current-number')
     totalPoints.forEach(item => {
@@ -138,3 +136,8 @@ function clearButton(){
   totalScore2 = 0
   activePlayer = 1
 }
+
+function gameRules(){
+  alert("Roll the die to accumlate points, cash in those points when you choose. But be aware that if you roll a 1 you lose all points that were not cashed-in. First player to 50 points Wins!")
+}
+gameRules()
