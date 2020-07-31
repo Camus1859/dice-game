@@ -95,4 +95,24 @@ function scoresAppear(){
     cashInButton.style.display =  "block"
 }
 
+let clear = document.getElementById('clear')
+clear.addEventListener('click', clearButton)
 
+function clearButton(){
+  let totalPoints = document.querySelectorAll('.total-points-number-both')
+  let currentPoints = document.querySelectorAll('.points-current-number')
+  let cashInButton = document.getElementById('cash-in-button')
+    totalPoints.forEach(item => {
+      item.textContent  = Number("0")
+    })
+    currentPoints.forEach(item => {
+      item.textContent = Number("0")
+    })
+    document.getElementById('the-1').style.opacity = "1"
+    document.getElementById('the-2').style.opacity = "1"
+dice = 0;
+roundScore = 0
+totalScore1 = 0
+totalScore2 = 0
+activePlayer = 1
+}
