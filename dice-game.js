@@ -6,6 +6,7 @@ let activePlayer = 1
 let rollDice = document.getElementById('roll-dice')
 let cashInButton = document.getElementById('cash-in-button')
 let clear = document.getElementById('clear')
+clear.disabled = true
 let startButton = document.getElementById('start')
 
 startButton.addEventListener('click', scoresAppear)
@@ -45,7 +46,7 @@ function gameStarts(){
 }
 
 function winner(){
-  if (totalScore1 >= 5) {
+  if (totalScore1 >= 30) {
     clearButton()
     document.getElementById('score-1').textContent = "WINNER!"
     document.getElementById('the-2').style.opacity = ".3"
@@ -53,19 +54,17 @@ function winner(){
     document.getElementById('clear').disabled = true
     document.getElementById('cash-in-button').disabled = true
   }
-  else if(totalScore2 >= 5){
+  else if(totalScore2 >= 30){
     clearButton()
     document.getElementById('score-2').textContent = "WINNER!"
     document.getElementById('the-1').style.opacity = ".3"
     document.getElementById('roll-dice').disabled = true
     document.getElementById('clear').disabled = true
     document.getElementById('cash-in-button').disabled = true
-
   }
 }
 
 function cashInPoints(){
-
   if (activePlayer ===1){
     totalScore1  = totalScore1 + roundScore
     document.getElementById('score-'+ activePlayer).textContent = totalScore1
@@ -125,10 +124,6 @@ function clearButton(){
   document.getElementById('start').disabled = false
   document.getElementById('cash-in-button').disabled = true
   document.getElementById('roll-dice').disabled = true
-
-
-
-
   let totalPoints = document.querySelectorAll('.total-points-number-both')
   let currentPoints = document.querySelectorAll('.points-current-number')
     totalPoints.forEach(item => {
@@ -147,6 +142,7 @@ function clearButton(){
 }
 
 function gameRules(){
-  alert("Roll the die to accumlate points, cash in those points when you choose. But be aware that if you roll a 1 you lose all points that were not cashed-in. First player to 50 points Wins!")
+  alert("Roll the die to accumlate points, cash in those points when you choose. But be aware that if you roll a 1 you lose all points that were not cashed-in. First player to 30 points Wins!")
 }
 gameRules()
+
