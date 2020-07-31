@@ -6,7 +6,9 @@ let activePlayer = 1
 let rollDice = document.getElementById('roll-dice')
 let cashInButton = document.getElementById('cash-in-button')
 let clear = document.getElementById('clear')
+let startButton = document.getElementById('start')
 
+startButton.addEventListener('click', scoresAppear)
 clear.addEventListener('click', clearButton)
 cashInButton.addEventListener('click', cashInPoints)
 
@@ -42,6 +44,24 @@ function gameStarts(){
   }
 }
 
+function winner(){
+  if (totalScore1 >= 10) {
+    clearButton()
+    document.getElementById('score-1').textContent = "WINNER!"
+    document.getElementById('the-2').style.opacity = ".3"
+    document.getElementById('roll-dice').disabled = true
+    document.getElementById('clear').disabled = true
+
+  }else if(totalScore2 >= 10){
+    clearButton()
+    document.getElementById('score-2').textContent = "WINNER!"
+    document.getElementById('the-1').style.opacity = ".3"
+    document.getElementById('roll-dice').disabled = true
+    document.getElementById('clear').disabled = true
+  }
+}
+
+
 function cashInPoints(){
   if (activePlayer ===1){
     totalScore1  = totalScore1 + roundScore
@@ -59,6 +79,7 @@ function cashInPoints(){
     activePlayer === 1 ?  activePlayer = 2 : activePlayer = 1;
     opacityValue()
   }
+  winner()
 }
 
 function displayOnStart(){
@@ -74,9 +95,17 @@ function displayOnStart(){
     cashInButton.style.display =  "none"
 }
 displayOnStart();
-let startButton = document.getElementById('start')
-startButton.addEventListener('click', scoresAppear)
+
+
 function scoresAppear(){
+  document.getElementById('score-1').textContent = 0
+  document.getElementById('score-2').textContent = 0
+  document.getElementById('roll-dice').disabled = false
+  document.getElementById('clear').disabled = false
+
+
+
+
   rollDice.addEventListener('click', randomDice)
   document.getElementById('the-2').style.opacity = ".3"
   let totalPoints = document.querySelectorAll('.total-points-number-both')
@@ -92,6 +121,7 @@ function scoresAppear(){
 }
 
 function clearButton(){
+
   let totalPoints = document.querySelectorAll('.total-points-number-both')
   let currentPoints = document.querySelectorAll('.points-current-number')
     totalPoints.forEach(item => {
