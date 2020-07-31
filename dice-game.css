@@ -135,11 +135,16 @@ margin-top: -5rem;
   width: 100%;
 }
 
-#le{
+.le{
   margin-right: -80rem;
 }
+
+
+
 
 #cash-in-button{
   background-color: rgb(9, 58, 9);
   color: rgb(255, 255, 255);
+  margin: auto;
+  
 }

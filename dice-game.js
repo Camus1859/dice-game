@@ -1,16 +1,13 @@
 let dice = 0;
-let rollDice = document.getElementById('roll-dice')
-rollDice.addEventListener('click', randomDice)
 let roundScore = 0
 let totalScore1 = 0
 let totalScore2 = 0
-
-
 let activePlayer = 1
+let rollDice = document.getElementById('roll-dice')
+let cashInButton = document.getElementById('cash-in-button')
 
-
-
-
+cashInButton.addEventListener('click', cashInPoints)
+rollDice.addEventListener('click', randomDice)
 
 function randomDice(){
   dice = Math.floor(Math.random() * 6) + 1
@@ -20,51 +17,53 @@ function randomDice(){
   gameStarts()
 }
 
+function opacityValue() {
+  if (activePlayer === 1){
+    document.getElementById('the-2').style.opacity = ".3"
+    document.getElementById('the-1').style.opacity = "1"
 
-
-function gameStarts(){
-  if (dice !== 1) {
-    roundScore += dice;
-   document.getElementById('current-' + activePlayer).textContent = roundScore 
-  } else{
-    document.getElementById('current-' + activePlayer).textContent = 0
-    roundScore = 0 
-    activePlayer === 1 ?  activePlayer = 2 : activePlayer = 1;
+  }else if(activePlayer === 2){
+    document.getElementById('the-1').style.opacity = ".3"
+    document.getElementById('the-2').style.opacity = "1"
   }
 }
 
 
+function gameStarts(){
 
-let cashInButton = document.getElementById('cash-in-button')
-cashInButton.addEventListener('click', cashInPoints)
+  if (dice !== 1) {
+    roundScore += dice;
+   document.getElementById('current-' + activePlayer).textContent = roundScore 
+   opacityValue()
 
+   
+
+  } else{
+    document.getElementById('current-' + activePlayer).textContent = 0
+    roundScore = 0 
+    activePlayer === 1 ?  activePlayer = 2 : activePlayer = 1;
+    opacityValue()
+
+  }
+}
 
 function cashInPoints(){
-if (activePlayer ===1){
-  totalScore1  = totalScore1 + roundScore
-  document.getElementById('score-'+ activePlayer).textContent = totalScore1
-  roundScore = 0
-  document.getElementById('current-' + activePlayer).textContent = 0
-  activePlayer === 1 ?  activePlayer = 2 : activePlayer = 1;
+  if (activePlayer ===1){
+    totalScore1  = totalScore1 + roundScore
+    document.getElementById('score-'+ activePlayer).textContent = totalScore1
+    roundScore = 0
+    document.getElementById('current-' + activePlayer).textContent = 0
+    activePlayer === 1 ?  activePlayer = 2 : activePlayer = 1;
+  }
+
+  else{
+    totalScore2  = totalScore2 + roundScore
+    document.getElementById('score-'+ activePlayer).textContent = totalScore2
+    roundScore = 0
+    document.getElementById('current-' + activePlayer).textContent = 0
+    activePlayer === 1 ?  activePlayer = 2 : activePlayer = 1;
+  }
 }
-
-else{
-  totalScore2  = totalScore2 + roundScore
-  document.getElementById('score-'+ activePlayer).textContent = totalScore2
-  roundScore = 0
-  document.getElementById('current-' + activePlayer).textContent = 0
-  activePlayer === 1 ?  activePlayer = 2 : activePlayer = 1;
-
-}
-
-
-
-}
-
-
-
-
-
 
 function displayOnStart(){
   let totalPoints = document.querySelectorAll('.total-points-number-both')
@@ -79,7 +78,6 @@ function displayOnStart(){
     cashInButton.style.display =  "none"
 }
 displayOnStart();
-
 let startButton = document.getElementById('start')
 startButton.addEventListener('click', scoresAppear)
 function scoresAppear(){
