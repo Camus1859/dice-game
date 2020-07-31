@@ -5,8 +5,9 @@ let totalScore2 = 0
 let activePlayer = 1
 let rollDice = document.getElementById('roll-dice')
 let cashInButton = document.getElementById('cash-in-button')
+let clear = document.getElementById('clear')
 
-
+clear.addEventListener('click', clearButton)
 cashInButton.addEventListener('click', cashInPoints)
 
 function randomDice(){
@@ -28,9 +29,7 @@ function opacityValue() {
   }
 }
 
-
 function gameStarts(){
-
   if (dice !== 1) {
     roundScore += dice;
    document.getElementById('current-' + activePlayer).textContent = roundScore 
@@ -51,9 +50,7 @@ function cashInPoints(){
     document.getElementById('current-' + activePlayer).textContent = 0
     activePlayer === 1 ?  activePlayer = 2 : activePlayer = 1;
     opacityValue()
-
   }
-
   else{
     totalScore2  = totalScore2 + roundScore
     document.getElementById('score-'+ activePlayer).textContent = totalScore2
@@ -82,7 +79,6 @@ startButton.addEventListener('click', scoresAppear)
 function scoresAppear(){
   rollDice.addEventListener('click', randomDice)
   document.getElementById('the-2').style.opacity = ".3"
-
   let totalPoints = document.querySelectorAll('.total-points-number-both')
   let currentPoints = document.querySelectorAll('.points-current-number')
   let cashInButton = document.getElementById('cash-in-button')
@@ -95,13 +91,9 @@ function scoresAppear(){
     cashInButton.style.display =  "block"
 }
 
-let clear = document.getElementById('clear')
-clear.addEventListener('click', clearButton)
-
 function clearButton(){
   let totalPoints = document.querySelectorAll('.total-points-number-both')
   let currentPoints = document.querySelectorAll('.points-current-number')
-  let cashInButton = document.getElementById('cash-in-button')
     totalPoints.forEach(item => {
       item.textContent  = Number("0")
     })
@@ -110,9 +102,9 @@ function clearButton(){
     })
     document.getElementById('the-1').style.opacity = "1"
     document.getElementById('the-2').style.opacity = "1"
-dice = 0;
-roundScore = 0
-totalScore1 = 0
-totalScore2 = 0
-activePlayer = 1
+  dice = 0;
+  roundScore = 0
+  totalScore1 = 0
+  totalScore2 = 0
+  activePlayer = 1
 }
