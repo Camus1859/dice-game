@@ -45,7 +45,7 @@ function gameStarts(){
 }
 
 function winner(){
-  if (totalScore1 >= 50) {
+  if (totalScore1 >= 5) {
     clearButton()
     document.getElementById('score-1').textContent = "WINNER!"
     document.getElementById('the-2').style.opacity = ".3"
@@ -53,7 +53,7 @@ function winner(){
     document.getElementById('clear').disabled = true
     document.getElementById('cash-in-button').disabled = true
   }
-  else if(totalScore2 >= 50){
+  else if(totalScore2 >= 5){
     clearButton()
     document.getElementById('score-2').textContent = "WINNER!"
     document.getElementById('the-1').style.opacity = ".3"
@@ -65,6 +65,7 @@ function winner(){
 }
 
 function cashInPoints(){
+
   if (activePlayer ===1){
     totalScore1  = totalScore1 + roundScore
     document.getElementById('score-'+ activePlayer).textContent = totalScore1
@@ -106,6 +107,7 @@ function scoresAppear(){
   document.getElementById('the-2').style.opacity = ".3"
   document.getElementById('the-1').style.opacity = "1"
   document.getElementById('cash-in-button').disabled = false
+  document.getElementById('start').disabled = true
   rollDice.addEventListener('click', randomDice)
   let totalPoints = document.querySelectorAll('.total-points-number-both')
   let currentPoints = document.querySelectorAll('.points-current-number')
@@ -120,6 +122,13 @@ function scoresAppear(){
 }
 
 function clearButton(){
+  document.getElementById('start').disabled = false
+  document.getElementById('cash-in-button').disabled = true
+  document.getElementById('roll-dice').disabled = true
+
+
+
+
   let totalPoints = document.querySelectorAll('.total-points-number-both')
   let currentPoints = document.querySelectorAll('.points-current-number')
     totalPoints.forEach(item => {
