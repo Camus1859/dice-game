@@ -1,1 +1,5 @@
-# Simple dice game utilizing js and DOM manipulation
+## Dice game
+### Utilizes 
+  -JS 
+  -DOM manipulation 
+  -CSS
