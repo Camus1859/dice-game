@@ -1,5 +1,7 @@
 const newVariable = {}
 
+const firstChangeOnThisBranch = ""
+
 let dice = 0;
 let roundScore = 0
 let totalScore1 = 0
